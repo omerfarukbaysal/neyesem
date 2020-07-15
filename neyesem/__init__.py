@@ -34,4 +34,7 @@ def create_app():
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
+    from .suggestion import suggestion as suggestion_blueprint
+    app.register_blueprint(suggestion_blueprint)
+
     return app

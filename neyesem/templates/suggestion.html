@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for suggestion in suggestions %}
+<h1 class="title">
+    {{ suggestion.name }}
+</h1>
+  {% endfor %}
+{% endblock %}
