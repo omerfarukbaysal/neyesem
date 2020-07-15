@@ -20,7 +20,7 @@ https://github.com/omerfarukbaysal/neyesem
 - Open your Python Terminal and type:
 `from neyesem import db, create_app`
 
-Then type:
+- Then type:
 `db.create_all(app=create_app())`
 
 ### Could not import "project.project".
