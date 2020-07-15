@@ -16,8 +16,10 @@ https://github.com/omerfarukbaysal/neyesem
 ## Possible Errors And Solutions
 
 ### sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: users
+
 - Open your Python Terminal and type:
 `from neyesem import db, create_app`
+
 Then type:
 `db.create_all(app=create_app())`
 
