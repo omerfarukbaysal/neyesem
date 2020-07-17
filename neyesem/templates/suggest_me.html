@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% from "_formhelpers.html" import render_field %}
+    <h3 class="title">Choose Your Meal</h3>
+    <div class="box">
+<form method=post>
+  <dl>
+      <label><b>Ingredients:</b></label>
+    {{ form.ingredients }}
+      <hr>
+      <label><b>Cuisine:</b></label>
+    {{ form.cuisine }}
+  </dl>
+    <hr>
+  <p><input type=submit value="Show My Meal">
+</form>
+    </div>
+{% endblock %}

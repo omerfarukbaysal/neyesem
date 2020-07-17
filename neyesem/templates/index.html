@@ -1,10 +1,70 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class="title">
-  Flask Login Example
-</h1>
-<h2 class="subtitle">
-  Easy authentication and authorization in Flask.
-</h2>
+    <h1 class="title">
+        Ne yesem?
+    </h1>
+    <h2 class="subtitle">
+        This simple app offers meal to your delight!
+    </h2>
+    {% if not current_user.is_authenticated %}
+        {% if visit %}
+            <div id="myModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 style="color:#363636; margin-left: auto" class="modal-title">Welcome again!</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <h4 style="color:#363636">Would you like to register our website to see more awesome
+                                content?</h4>
+                            <div class="box">
+                                {% with messages = get_flashed_messages() %}
+                                    {% if messages %}
+                                        <div class="notification is-danger">
+                                            {{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login
+                                            page</a>.
+                                        </div>
+                                    {% endif %}
+                                {% endwith %}
+                                <form method="POST" action="/signup">
+                                    <div class="field">
+                                        <div class="control">
+                                            <input class="input is-large" type="email" name="email" placeholder="Email"
+                                                   autofocus="">
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <div class="control">
+                                            <input class="input is-large" type="text" name="name" placeholder="Name"
+                                                   autofocus="">
+                                        </div>
+                                    </div>
+
+                                    <div class="field">
+                                        <div class="control">
+                                            <input class="input is-large" type="password" name="password"
+                                                   placeholder="Password">
+                                        </div>
+                                    </div>
+
+                                    <button class="button is-block is-info is-large is-fullwidth">Sign Up</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block custom_js %}
+    <script>
+        $(document).ready(function () {
+            $("#myModal").modal('show');
+        });
+    </script>
 {% endblock %}

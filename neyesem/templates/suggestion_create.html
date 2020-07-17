@@ -7,17 +7,50 @@
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
                     <div class="notification is-danger">
-                        {{ messages[0] }}. Go to <a href="{{ url_for('suggestion.suggest') }}">meal page</a>.
+                        {{ messages[0] }}
                     </div>
                 {% endif %}
             {% endwith %}
-            <form method="POST" action="/suggest/create">
 
+            <form method="POST" action="/suggest/create" enctype="multipart/form-data">
                 <div class="field">
+                    <div class="control">
+                        <label><b>Name of Meal:</b></label>
+                        {{ form.name }}
+                    </div>
+                </div>
+                <hr>
+                <div class="field">
+                    <div class="control">
+                        <label><b>Select the meal's ingredients</b></label>
+                        {{ form.ingredients }}
+                    </div>
+                </div>
+                <hr>
+                <div class="field">
+                    <div class="control">
+                    <label><b>Select meal's cuisine</b></label><br>
+                        {{ form.cuisine }}
+                    </div>
+                </div>
+                <hr>
+                <div class="field">
+                    <div class="control">
+                    <label><b>Select meal's image</b></label><br>
+                        {{ form.image }}
+                    </div>
+                </div>
+                <!--<div class="field">
                     <div class="control">
                         <input class="input is-large" type="text" name="name" placeholder="Name" autofocus="">
                     </div>
                 </div>
+
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large" type="text" name="ingredients" placeholder="Ingredients (use &ldquo;|&rdquo; for seperate)" autofocus="">
+                    </div>
+                </div>-->
 
                 <button class="button is-block is-info is-large is-fullwidth">Add Meal</button>
             </form>

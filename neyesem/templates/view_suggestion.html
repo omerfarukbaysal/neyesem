@@ -2,12 +2,20 @@
 
 {% block content %}
 
+    <h1 class="title">
+        Your Preferences:
+        {% for ingredient in ingredients %}
+            {{ ingredient }},
+        {% endfor %}
+    </h1>
+    <br>
+    <br>
     <table>
         <tr>
             <th class="title"></th>
             <th class="title">Meal Name</th>
-            <th class="title">Ingredients</th>
-            <th class="title">Cuisine</th>
+            <th class="title">Ingredients (Your Preferences)</th>
+            <th class="title">Cuisine (Your Preferences)</th>
         </tr>
         {% for suggestion in suggestions %}
             <tr>
@@ -17,8 +25,4 @@
                 <td><b>{{ suggestion.cuisine }}</b></td>
             </tr>{% endfor %}
     </table>
-    <h1>
-
-    </h1>
-
 {% endblock %}

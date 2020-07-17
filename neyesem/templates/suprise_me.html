@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3 class="title">Today's Meal is: </h3>
+<p>(Changes every minute)</p>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th class="title">Meal Name</th>
+            <th class="title">Ingredients</th>
+        </tr>
+            <tr>
+                <td><b>{{ random.get_meal_name(random.meal_id) }}</b></td>
+                <td><b>{{ random.get_meal_ingredients(random.meal_id) }}</b></td>
+            </tr>
+    </table>
+    <h1>
+
+    </h1>
+
+{% endblock %}
