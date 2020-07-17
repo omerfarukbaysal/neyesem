@@ -102,7 +102,8 @@ def suggest_create_post():
         return redirect(url_for('suggestion.suggest_create'))
     if allowed_image(image.filename):
         filename = secure_filename(image.filename)
-        image.save(os.path.join(app.root_path + app.config['IMAGE_UPLOADS'], filename))
+        #image.save(os.path.join(app.root_path + app.config['IMAGE_UPLOADS'], filename)),
+        image.save(os.path.join(app.root_path, 'static', 'media', filename))
         image_path = (app.config['IMAGE_UPLOADS']).replace('\\', '/') + '/' + filename
         meal = Meal.query.filter_by(name=name).first()
         if meal:
