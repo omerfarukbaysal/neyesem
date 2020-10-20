@@ -27,6 +27,9 @@ class Meal(db.Model):
     def get_meal_name(self):
         return self.name
 
+    def get_image(self):
+        return self.image
+
 class Suprise(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     meal_id = db.Column(db.Integer(), db.ForeignKey('meal.id'))
@@ -37,6 +40,9 @@ class Suprise(db.Model):
 
     def get_meal_ingredients(self,meal_id):
         return Meal.query.filter_by(id=meal_id).first().get_all_ingredients_with_comma()
+
+    def get_meal_image(self,meal_id):
+        return Meal.query.filter_by(id=meal_id).first().get_image()
 
 
 class Visitor(db.Model):
