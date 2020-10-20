@@ -1,4 +1,4 @@
-# This simple app offers meal to your delight
+# Indulge your taste buds!
 
 ## How to Run
 Require [Python 3.5+](https://www.python.org/ftp/python/3.6.4/python-3.6.4.exe) installed.
